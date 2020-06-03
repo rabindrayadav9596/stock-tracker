@@ -5,23 +5,32 @@ const Graph = ({ data }) => {
   console.log(data);
   const stockData = Object.values(data);
   console.log(stockData);
-
   const todayStock = stockData[0];
   console.log(todayStock);
   let todayStockValue = null;
-  if (todayStock) {
-    console.log(todayStock);
-    todayStockValue = Object.values(todayStock);
-    console.log(todayStockValue);
+  let value = stockData.map((item) => {
+    return Object.values(item);
+  });
+  console.log(value);
+
+  let openValue = [];
+  for (let i = value.length - 1; i >= 0; i--) {
+    openValue.push(value[i][0]);
+  }
+  console.log(openValue);
+  const dateAPI = Object.keys(data);
+  let date = [];
+  for (let i = dateAPI.length - 1; i >= 0; i--) {
+    date.push(dateAPI[i]);
   }
 
   const lineChart = todayStock ? (
     <Line
       data={{
-        labels: Object.keys(data),
+        labels: date,
         datasets: [
           {
-            data: todayStockValue,
+            data: openValue,
 
             label: "Open",
             borderColor: "#3333ff",
