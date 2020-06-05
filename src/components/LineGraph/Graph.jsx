@@ -1,49 +1,49 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
 import styles from "./Graph.module.css";
-const Graph = ({ data }) => {
-  console.log(data);
+const Graph = ({ data, company }) => {
+  //console.log(data);
   const stockData = Object.values(data);
 
   let value = stockData.map((item) => {
     return Object.values(item);
   });
-  console.log(value);
+  //console.log(value);
 
   //creating openValue
   let openValue = [];
   for (let i = value.length - 1; i >= 0; i--) {
     openValue.push(value[i][0]);
   }
-  console.log(openValue);
+  //console.log(openValue);
 
   //creating highValue
   let highValue = [];
   for (let i = value.length - 1; i >= 0; i--) {
     highValue.push(value[i][1]);
   }
-  console.log(highValue);
+  //console.log(highValue);
 
   //creating lowValue
   let lowValue = [];
   for (let i = value.length - 1; i >= 0; i--) {
     lowValue.push(value[i][2]);
   }
-  console.log(lowValue);
+  // console.log(lowValue);
 
   //creating closeValue
   let closeValue = [];
   for (let i = value.length - 1; i >= 0; i--) {
     closeValue.push(value[i][3]);
   }
-  console.log(closeValue);
+  //console.log(closeValue);
 
   //creating volume
   let volume = [];
   for (let i = value.length - 1; i >= 0; i--) {
     volume.push(value[i][4]);
   }
-  console.log(volume);
+  //console.log(volume);
 
   //date for labelling
   const dateAPI = Object.keys(data);
@@ -59,14 +59,14 @@ const Graph = ({ data }) => {
           {
             data: closeValue,
             label: "Close",
-            borderColor: "orange",
+            borderColor: "#3333ff",
             backgroundColor: "rgba(255, 0, 0, 0.5)",
             fill: false,
           },
           {
             data: openValue,
             label: "Open",
-            borderColor: "#3333ff",
+            borderColor: "#99ccff",
             hidden: true,
             fill: false,
           },
@@ -95,6 +95,10 @@ const Graph = ({ data }) => {
             fill: false,
           },
         ],
+      }}
+      options={{
+        legend: { display: false },
+        title: { display: true, text: `Stock of ${company}` },
       }}
     />
   ) : null;
