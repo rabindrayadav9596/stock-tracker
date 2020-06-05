@@ -11,7 +11,7 @@ const CompanyPicker = ({ handleCompanyChange }) => {
   useEffect(() => {
     const symbol = jsonData.map((value) => value.symbol);
     setCompanies(symbol);
-  }, [jsonData]);
+  }, []);
   return (
     <FormControl className={styles.formControl}>
       <NativeSelect
