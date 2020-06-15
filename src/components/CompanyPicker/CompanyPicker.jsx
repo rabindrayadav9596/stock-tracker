@@ -6,7 +6,7 @@ import jsonData from "./symbols.json";
 
 const CompanyPicker = ({ handleCompanyChange }) => {
   const [companies, setCompanies] = useState([]);
-  const loadData = () => JSON.parse(JSON.stringify(jsonData));
+  //const loadData = () => JSON.parse(JSON.stringify(jsonData));
   console.log(jsonData);
   useEffect(() => {
     const symbol = jsonData.map((value) => value.symbol);
