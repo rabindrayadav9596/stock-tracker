@@ -1,14 +1,12 @@
-* {
+body {
+  margin: 0px;
+  padding: 0px;
   box-sizing: border-box;
-  bottom: 0px;
 }
 
 .container {
   height: 50px;
   width: 100%;
   background-color: rgb(48, 48, 48);
-  left: 0;
-  right: 0;
-  bottom: 0;
-  position: absolute;
+  position: relative;
 }

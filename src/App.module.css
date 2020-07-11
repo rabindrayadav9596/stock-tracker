@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .container {
   display: flex;
   align-items: center;
@@ -9,11 +15,11 @@
   margin-top: 10px;
 }
 
-@media (max-width: 770px) {
+/* @media (max-width: 770px) {
   .container {
     margin: 0 10%;
   }
   .image {
     width: 100%;
   }
-}
+} */
